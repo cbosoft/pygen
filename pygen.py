@@ -9,6 +9,7 @@ class PiGen:
         self.k = Decimal(0.)
         self.p = Decimal(0.)
         self.tot = Decimal(0.)
+        self.character_index = 0
 
         self.dec1 = Decimal(1.)
         self.teenth = Decimal(1./16.)
@@ -46,6 +47,10 @@ class PiGen:
 
     def get_next_digit(self):
 
+        if self.character_index == 1:
+            self.character_index += 1
+            return '.'
+
         # set prev to negative number which will never appear in the sequence.
         prev_iteration = -1
         i = 0
@@ -57,5 +62,6 @@ class PiGen:
         rv = self.current_digit()
 
         self.incp()
+        self.character_index += 1
 
-        return rv
+        return str(rv)
