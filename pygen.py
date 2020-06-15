@@ -59,8 +59,3 @@ class PiGen:
         self.incp()
 
         return rv
-
-pg = PiGen()
-for i in range(100):
-    print(pg.get_next_digit(), end='', flush=True)
-
